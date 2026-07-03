@@ -1,0 +1,20 @@
+User gives a topic
+        ↓
+Search Agent uses Tavily
+        ↓
+Tavily returns URLs + snippets
+        ↓
+Reader Agent uses scrape_url tool
+        ↓
+scrape_url uses BeautifulSoup to extract text
+        ↓
+Reader Agent understands/summarizes the scraped text
+        ↓
+Writer Agent writes the report
+        ↓
+Critic Agent reviews the report
+
+
+step 1 create tools.py
+step 2 create agents.py
+step 3 create pipeline.py

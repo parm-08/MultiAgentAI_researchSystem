@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Field Desk — Multi-Agent Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="masthead">
+  
+  <h1 class="masthead__title">Research Desk</h1>
+  <p class="masthead__sub">Four agents, one dossier. Search, read, write, critique — dispatched on your word.</p>
+</header>
+
+<main class="layout">
+
+  <!-- LEFT: dispatch form + stage log -->
+  <section class="deck">
+    <div class="card card--form">
+      <span class="card__eyebrow">New Investigation</span>
+      <label for="topic" class="field-label">Topic</label>
+      <textarea id="topic" placeholder="e.g. The economic impact of vertical farming in arid regions" rows="3"></textarea>
+      <button id="dispatchBtn" class="btn-dispatch">
+        <span class="btn-dispatch__label">Dispatch Agents</span>
+        <span class="btn-dispatch__arrow">→</span>
+      </button>
+      <p id="errorMsg" class="error-msg" hidden></p>
+    </div>
+
+    <div class="card card--log">
+      <span class="card__eyebrow">Specimen Log</span>
+      <ol class="stage-list" id="stageList">
+        <li class="stage" data-stage="search">
+          <span class="stage__stamp">01</span>
+          <div class="stage__body">
+            <span class="stage__name">Search</span>
+            <span class="stage__desc">Scanning the field for sources</span>
+          </div>
+          <span class="stage__status"></span>
+        </li>
+        <li class="stage" data-stage="read">
+          <span class="stage__stamp">02</span>
+          <div class="stage__body">
+            <span class="stage__name">Read</span>
+            <span class="stage__desc">Scraping the strongest lead</span>
+          </div>
+          <span class="stage__status"></span>
+        </li>
+        <li class="stage" data-stage="write">
+          <span class="stage__stamp">03</span>
+          <div class="stage__body">
+            <span class="stage__name">Write</span>
+            <span class="stage__desc">Drafting the report</span>
+          </div>
+          <span class="stage__status"></span>
+        </li>
+        <li class="stage" data-stage="critique">
+          <span class="stage__stamp">04</span>
+          <div class="stage__body">
+            <span class="stage__name">Critique</span>
+            <span class="stage__desc">Marking it up in red pen</span>
+          </div>
+          <span class="stage__status"></span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- RIGHT: results -->
+  <section class="findings" id="findings" hidden>
+
+    <article class="card card--report">
+      <span class="card__eyebrow">Field Report — <span id="reportTopic"></span></span>
+      <div class="report-body" id="reportBody"></div>
+    </article>
+
+    <article class="card card--critique">
+      <span class="card__eyebrow card__eyebrow--rose">Editor's Margin Note</span>
+      <div class="critique-body" id="critiqueBody"></div>
+    </article>
+
+    <details class="card card--appendix">
+      <summary class="card__eyebrow">Appendix — Raw Search &amp; Source Notes</summary>
+      <div class="appendix-body">
+        <h3>Search results</h3>
+        <pre id="searchBody"></pre>
+        <h3>Scraped source</h3>
+        <pre id="scrapeBody"></pre>
+      </div>
+    </details>
+
+  </section>
+
+  <section class="empty-state" id="emptyState">
+    <div class="empty-state__mark">§</div>
+    <p>No investigation open yet. Give the desk a topic and dispatch the agents.</p>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
